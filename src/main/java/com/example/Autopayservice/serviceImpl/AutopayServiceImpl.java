@@ -63,14 +63,11 @@ public class AutopayServiceImpl implements AutopayService {
 		return Response;
 	}
 
-	
-	
-	
 	@Override
 	public String fetchDebitRequest(DebitRequest debitRequest) {
-		
-		String Url=config.getDebitUrl();
-		
+
+		String Url = config.getDebitUrl();
+
 		debitRequest.getFirstName();
 		debitRequest.getAmount();
 		debitRequest.getCallbackUrl();
@@ -83,7 +80,7 @@ public class AutopayServiceImpl implements AutopayService {
 		debitRequest.getProductInfo();
 		debitRequest.getSubMerchantId();
 		debitRequest.getSuccessRedirectUrl();
-		
+
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization", token);
 		headers.set("Content-Type", "application/json");
@@ -94,16 +91,14 @@ public class AutopayServiceImpl implements AutopayService {
 
 	@Override
 	public String fetchTransactionstatus(TransactionStatusRequest request) {
-		
-		
-		String Url=config.getTransactionUrl();
-		
-		
+
+		String Url = config.getTransactionUrl();
+
 		request.getTxnId();
 		request.getAmount();
 		request.getEmail();
 		request.getPhone();
-		
+
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization", token);
 		headers.set("Content-Type", "application/json");
@@ -114,18 +109,17 @@ public class AutopayServiceImpl implements AutopayService {
 
 	@Override
 	public String fetchCancelrequest(CancelRequest cancelRequest) {
-		
-		
-		String Url=config.getCancelUrl();
-		
+
+		String Url = config.getCancelUrl();
+
 		cancelRequest.getCustomerAuthenticationId();
-		
+
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization", token);
 		headers.set("Content-Type", "application/json");
 		HttpEntity<String> requestEntity = new HttpEntity(cancelRequest, headers);
 		String Response = restTemplate.postForObject(Url, requestEntity, String.class);
 		return Response;
-		
+
 	}
 }
