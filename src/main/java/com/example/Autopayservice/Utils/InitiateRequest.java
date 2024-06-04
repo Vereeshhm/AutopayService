@@ -1,9 +1,21 @@
 package com.example.Autopayservice.Utils;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="InitiatePaymenttable")
 public class InitiateRequest {
 
 	
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
+    
 	private String firstName;
 	
 	private String amount;
@@ -18,8 +30,9 @@ public class InitiateRequest {
 	
 	private String failureRedirectUrl;
 	
-	private Number maxAmount;
+	private String maxAmount;
 
+	private String callbackUrl;
 
 	private String finalCollectionDate;
 	
@@ -47,6 +60,14 @@ public class InitiateRequest {
 	private String userDefinedField2;
 	
 	private String userDefinedField3;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getFirstName() {
 		return firstName;
@@ -104,12 +125,20 @@ public class InitiateRequest {
 		this.failureRedirectUrl = failureRedirectUrl;
 	}
 
-	public Number getMaxAmount() {
+	public String getMaxAmount() {
 		return maxAmount;
 	}
 
-	public void setMaxAmount(Number maxAmount) {
+	public void setMaxAmount(String maxAmount) {
 		this.maxAmount = maxAmount;
+	}
+
+	public String getCallbackUrl() {
+		return callbackUrl;
+	}
+
+	public void setCallbackUrl(String callbackUrl) {
+		this.callbackUrl = callbackUrl;
 	}
 
 	public String getFinalCollectionDate() {
@@ -127,14 +156,6 @@ public class InitiateRequest {
 	public void setSubMerchantId(String subMerchantId) {
 		this.subMerchantId = subMerchantId;
 	}
-//
-//	public String getShowPaymentMode() {
-//		return showPaymentMode;
-//	}
-//
-//	public void setShowPaymentMode(String showPaymentMode) {
-//		this.showPaymentMode = showPaymentMode;
-//	}
 
 	public String getAddress1() {
 		return address1;
@@ -207,7 +228,18 @@ public class InitiateRequest {
 	public void setUserDefinedField3(String userDefinedField3) {
 		this.userDefinedField3 = userDefinedField3;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "InitiateRequest [id=" + id + ", firstName=" + firstName + ", amount=" + amount + ", productInfo="
+				+ productInfo + ", phone=" + phone + ", email=" + email + ", successRedirectUrl=" + successRedirectUrl
+				+ ", failureRedirectUrl=" + failureRedirectUrl + ", maxAmount=" + maxAmount + ", callbackUrl="
+				+ callbackUrl + ", finalCollectionDate=" + finalCollectionDate + ", subMerchantId=" + subMerchantId
+				+ ", address1=" + address1 + ", address2=" + address2 + ", city=" + city + ", state=" + state
+				+ ", country=" + country + ", zipcode=" + zipcode + ", userDefinedField1=" + userDefinedField1
+				+ ", userDefinedField2=" + userDefinedField2 + ", userDefinedField3=" + userDefinedField3 + "]";
+	}
+
+
 	
 }

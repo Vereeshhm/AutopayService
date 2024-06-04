@@ -2,13 +2,12 @@ package com.example.Autopayservice.Utils;
 
 public class TransactionStatusRequest {
 
-	
 	private String txnId;
-	
+
 	private String amount;
-	
+
 	private String email;
-	
+
 	private String phone;
 
 	public String getTxnId() {
@@ -42,7 +41,5 @@ public class TransactionStatusRequest {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
-	
-	
+
 }

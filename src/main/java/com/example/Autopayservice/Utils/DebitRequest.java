@@ -87,6 +87,10 @@ public class DebitRequest {
 		this.callbackUrl = callbackUrl;
 	}
 
+	
+
+
+
 	public String getMaxAmount() {
 		return maxAmount;
 	}

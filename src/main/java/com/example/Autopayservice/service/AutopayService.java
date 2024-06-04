@@ -1,18 +1,16 @@
 package com.example.Autopayservice.service;
 
-import com.example.Autopayservice.Utils.CancelRequest;
-import com.example.Autopayservice.Utils.DebitRequest;
-import com.example.Autopayservice.Utils.InitiateRequest;
-import com.example.Autopayservice.Utils.TransactionStatusRequest;
+import com.example.Autopayservice.Responses.DebitResponse;
+import com.example.Autopayservice.Responses.InitiatePayResponseEntity;
 
 public interface AutopayService {
 
-	public String fetchInitiate(InitiateRequest initiateRequest);
+	public InitiatePayResponseEntity fetchInitiate();
 
-	public String fetchDebitRequest(DebitRequest debitRequest);
+	public DebitResponse fetchDebitRequest();
 
-	public String fetchTransactionstatus(TransactionStatusRequest request);
+	public String fetchTransactionstatus();
 
-	public String fetchCancelrequest(CancelRequest cancelRequest);
+	public String fetchCancelrequest();
 
 }
